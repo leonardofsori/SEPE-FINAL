@@ -2,7 +2,6 @@
 #include <WiFiClient.h> 
 #include <ESP8266WebServer.h>
 
-/* Set these to your desired credentials. */
 const char *ssid = "ifc_projeto";
 const char *password = "SEPECARAIO";
 
@@ -21,9 +20,7 @@ const String HOMEPAGE = "<nav class=\"menu1\"><h1>PISO 1</h1><ul><li>Sala:<li><u
 
 
 
-/* Just a little test message.  Go to http://192.168.4.1 in a web browser
- * connected to this access point to see it.
- */
+/* Para acessar o site, acessar http://192.168.4.1 */
 void handleRoot() {
  String s =HTTP_HEAD;
        s += HTTP_STYLE;
@@ -146,8 +143,8 @@ void setup() {
   Serial.begin(115200);
   Serial.println();
   Serial.print("Configuring access point...");
-  /* You can remove the password parameter if you want the AP to be open. */
-  WiFi.softAP(ssid, password);
+ 
+  WiFi.softAP(ssid, password); /* Para deixar aberto para o publico, apagar o password*/
 
   IPAddress myIP = WiFi.softAPIP();
   Serial.print("AP IP address: ");
